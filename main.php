@@ -1,5 +1,3 @@
-<?php
-
 <article class="leaderboard">
   <header>
 <style>
@@ -121,13 +119,12 @@ body {
     <?php
     $q = mysqli_connect('localhost', 'root', '')or die('no: ' . mysqli_error($q));
 mysqli_select_db($q,"queuekz");
-$result_money = mysqli_query($q,"SELECT * FROM `list` WHERE 1 limit 0,3 ");
+$result_money = mysqli_query($q,"SELECT * FROM `list` WHERE 1 limit 0,4 ");
     while( $myrow_name = $result_money->fetch_array() )
-    while( $myrow_number = $result_money->fetch_array() )
 {
     echo '<article class="leaderboard__profile">
-            <span class="leaderboard__name">' . $myrow_name['name'] . '</span>
-      <span class="leaderboard__value">' . $myrow_number['number'] . '<span></span></span>
+            <span style="color:red"><img width="25px" src="/img/hourglass.gif">2 Кабинет</span> <span class="leaderboard__name">' . $myrow_name['name'] . '</span>
+      <span style="color: red;" class="leaderboard__value"><center><div style="float: right;">' . $myrow_name['number'] . '<span style="color:blue;"><br>' . $myrow_name['datenow'] . '</div></span></span>
     </article>';
 }
     ?>
@@ -135,9 +132,3 @@ $result_money = mysqli_query($q,"SELECT * FROM `list` WHERE 1 limit 0,3 ");
 
   </main>
 </div>
-
-
-
-
-
-?>
